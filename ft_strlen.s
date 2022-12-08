@@ -12,11 +12,12 @@
 
             section .text
 ft_strlen:
-            xor     eax, eax
+            xor     eax, eax        ; set rax to 0 for return
 .Lloop:
-            cmp     byte [rdi + rax], 0x0
-            je      .Lend
-            inc     rax
+            mov     cl, [rdi + rax] ; set current char to cl
+            test    cl, cl          ; test if current char is null
+            je      .Lend           ; if null, break
+            inc     rax             ; rax++
             jmp     .Lloop
 .Lend:
             ret
