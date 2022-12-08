@@ -10,7 +10,8 @@ RM			=	rm -f
 
 MAKE		=	make -s
 
-SRC			=	ft_strlen.s
+SRC			=	ft_strlen.s \
+				ft_strcpy.s
 
 OBJ			=	$(SRC:%.s=$(OBJ_DIR)/%.o)
 OBJ_DIR		=	obj
@@ -39,7 +40,7 @@ fclean: clean
 re: fclean all
 
 test: all
-		@$(MAKE) -C test
+		@$(MAKE) -C test re
 		./test/test
 
 run: test
