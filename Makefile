@@ -12,7 +12,8 @@ MAKE		=	make -s
 
 SRC			=	ft_strlen.s \
 				ft_strcpy.s \
-				ft_strcmp.s
+				ft_strcmp.s \
+				ft_strdup.s
 
 OBJ			=	$(SRC:%.s=$(OBJ_DIR)/%.o)
 OBJ_DIR		=	obj

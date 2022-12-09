@@ -1,7 +1,7 @@
 NAME	=	test.out
 
 CC		=	gcc
-CFLAGS	=	$(IFLAGS) -Wall -Wextra -Werror -fno-builtin-strcmp
+CFLAGS	=	$(IFLAGS) -Wall -Wextra -Werror -fno-builtin-strcmp -fPIE
 IFLAGS	=	-I.
 LDLIBS	=	-L.. -lasm
 
