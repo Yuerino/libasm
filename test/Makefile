@@ -1,4 +1,4 @@
-NAME	=	test
+NAME	=	test.out
 
 CC		=	gcc
 CFLAGS	=	$(IFLAGS) -Wall -Wextra -Werror
@@ -32,4 +32,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: re
+		./$(NAME)
+
+.PHONY: all clean fclean re run

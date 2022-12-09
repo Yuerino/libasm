@@ -15,12 +15,12 @@
 ft_strcpy:
             mov     rax, rdi        ; set dest to rax for return
 .Lloop:
-            mov     cl, [rsi]       ; set current char to cl
+            movzx   ecx, byte [rsi] ; set current char to ecx
             test    cl, cl          ; test if current char is null
             je      .Lend           ; if null, break
             mov     [rdi], cl       ; add current char to dest
-            inc     rsi             ; src++
-            inc     rdi             ; dest++
+            add     rsi, 1          ; src++
+            add     rdi, 1          ; dest++
             jmp    .Lloop
 .Lend:
             mov     byte [rdi], 0x0 ; null-terminate dest

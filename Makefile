@@ -40,10 +40,6 @@ fclean: clean
 re: fclean all
 
 test: all
-		@$(MAKE) -C test re
-		./test/test
+		@$(MAKE) -C test run
 
-run: test
-		./test/test
-
-.PHONY: all clean fclean re test run
+.PHONY: all clean fclean re test
