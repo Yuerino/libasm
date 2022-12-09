@@ -17,11 +17,8 @@ ft_strcpy:                                  ; rax ft_strcpy(rdi, rsi)
             xor     edx, edx                ; set index to 0
 .Lloop:
             movzx   ecx, byte [rsi + rdx]   ; set current char to ecx
-            test    cl, cl                  ; test if current char is 0
-            jz      .Lend                   ; if zero, break
             mov     [rdi + rdx], cl         ; add current char to dest
             add     rdx, 1                  ; index++
-            jmp    .Lloop                   ; loop
-.Lend:
-            mov     byte [rdi + rdx], 0x0   ; null-terminate dest
+            test    cl, cl                  ; test if current char is 0
+            jnz     .Lloop                  ; if not zero, loop
             ret

@@ -11,13 +11,13 @@
             global ft_strlen
 
             section .text
-ft_strlen:
-            xor     eax, eax                ; set rax to 0 for return
+ft_strlen:                                  ; rax ft_strlen(rdi)
+            xor     eax, eax                ; zero-ed rax for length counter
 .Lloop:
             movzx   ecx, byte [rdi + rax]   ; set current char to ecx
             test    cl, cl                  ; test if current char is 0
             jz      .Lend                   ; if zero, break
-            add     rax, 1                  ; rax++
+            add     rax, 1                  ; length++
             jmp     .Lloop                  ; loop
 .Lend:
             ret
