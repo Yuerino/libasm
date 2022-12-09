@@ -4,7 +4,7 @@
 ;
 ;   size_t ft_strlen(const char *str)
 ;
-; The strlen() function returns the number of bytes in the string pointed to by
+; The ft_strlen() function returns the number of bytes in the string pointed to by
 ; str.
 ; -----------------------------------------------------------------------------
 
@@ -15,9 +15,9 @@ ft_strlen:
             xor     eax, eax                ; set rax to 0 for return
 .Lloop:
             movzx   ecx, byte [rdi + rax]   ; set current char to ecx
-            test    cl, cl                  ; test if current char is null
-            je      .Lend                   ; if null, break
+            test    cl, cl                  ; test if current char is 0
+            jz      .Lend                   ; if zero, break
             add     rax, 1                  ; rax++
-            jmp     .Lloop
+            jmp     .Lloop                  ; loop
 .Lend:
             ret
