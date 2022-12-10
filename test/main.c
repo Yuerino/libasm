@@ -9,5 +9,6 @@ int main() {
         ft_strcmp("hello", "hell0"), strcmp("hello", "hell0"));
     char *dest2 = ft_strdup(str);
     printf("Duplicated string is %s\n\n", dest2);
+    ft_write(1, "Hello World\n", 12);
     return 0;
 }
