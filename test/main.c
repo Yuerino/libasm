@@ -10,5 +10,14 @@ int main() {
     char *dest2 = ft_strdup(str);
     printf("Duplicated string is %s\n\n", dest2);
     ft_write(1, "Hello World\n", 12);
+    int fd = open("main.c", O_RDONLY);
+    if (fd < -1) {
+        printf("Error opening file\n");
+        return 1;
+    }
+    char buf[4242];
+    size_t readSize = ft_read(fd, buf, 4241);
+    buf[readSize] = '\0';
+    printf("Read from file: %s\n", buf);
     return 0;
 }
