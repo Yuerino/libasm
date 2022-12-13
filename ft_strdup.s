@@ -16,18 +16,15 @@
 
             section .text
 ft_strdup:                                  ; rax ft_strdup(rdi)
-            sub     rsp, 8                  ; align stack
-            call    ft_strlen               ; rax = ft_strlen(rdi)
-            add     rsp, 8                  ; restore stack
             push    rdi                     ; save rdi (s1)
-            lea     rdi, [rax +1]           ; rdi = rax+1 for null byte
+            call    ft_strlen               ; rax = ft_strlen(rdi)
+            lea     rdi, [rax + 1]          ; rdi = rax+1 for null byte
             call    malloc wrt ..plt        ; rax = malloc(rdi)
-            pop     rdi                     ; restore rdi
             test    rax, rax                ; check if malloc failed
             jz      .Lmalloc_failed         ; if zero, jump to .Lmalloc_failed
-            mov     rsi, rdi                ; move rdi to rsi
+            pop     rsi                     ; restore rdi to (s1)
             mov     rdi, rax                ; move rax to rdi
-            jmp    ft_strcpy                ; jump ft_strcpy(rdi, rsi)
+            jmp     ft_strcpy               ; jump ft_strcpy(rdi, rsi)
 .Lmalloc_failed:
             xor     eax, eax
             ret
