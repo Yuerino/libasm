@@ -15,7 +15,10 @@ SRC			=	ft_strlen.s \
 				ft_strcmp.s \
 				ft_strdup.s \
 				ft_write.s \
-				ft_read.s
+				ft_read.s \
+				ft_isspace.s \
+				ft_strchr.s \
+				ft_atoi_base.s
 
 OBJ			=	$(SRC:%.s=$(OBJ_DIR)/%.o)
 OBJ_DIR		=	obj

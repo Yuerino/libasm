@@ -17,7 +17,11 @@ int main() {
     }
     char buf[4242];
     size_t readSize = ft_read(fd, buf, 4241);
+    close(fd);
     buf[readSize] = '\0';
     printf("Read from file: %s\n", buf);
+    printf("Is space: %i\n", ft_isspace(' '));
+    printf("at index: %s\n", ft_strchr(str, 'H'));
+    printf("20 in base 16: %i\n", ft_atoi_base("+20", "0123456789ABCDEF"));
     return 0;
 }
