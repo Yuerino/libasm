@@ -18,7 +18,8 @@ SRC			=	ft_strlen.s \
 				ft_read.s \
 				ft_isspace.s \
 				ft_strchr.s \
-				ft_atoi_base.s
+				ft_atoi_base.s \
+				ft_list_size.s
 
 OBJ			=	$(SRC:%.s=$(OBJ_DIR)/%.o)
 OBJ_DIR		=	obj
