@@ -52,7 +52,19 @@ int main() {
     list->next->data = ft_strdup("tmp2");
     list->next->next = 0;
     ft_list_remove_if(&list, "tmp1", strcmp, free);
-    printf("str: %s\n", (char *)list->data);
+    printf("\n\nstr: %s\n", (char *)list->data);
+    printf("ptr: %p\n", list->next);
+    //leaks
+    }
+
+    {
+    t_list *list = malloc(sizeof(t_list));
+    list->data = ft_strdup("tmp2");
+    list->next = malloc(sizeof(t_list));
+    list->next->data = ft_strdup("tmp1");
+    list->next->next = 0;
+    ft_list_sort(&list, strcmp);
+    printf("\n\nstr: %s\n", (char *)list->data);
     printf("ptr: %p\n", list->next);
     //leaks
     }

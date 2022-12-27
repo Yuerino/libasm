@@ -1,7 +1,7 @@
 ; -----------------------------------------------------------------------------
 ; The ft_list_size() function returns the number of element in the list.
 ;
-;   int ft_list_size(t_list *begin_list)
+;   int ft_list_size(t_list *begin_list);
 ;
 ; t_list is defined as follows:
 ;

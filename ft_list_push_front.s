@@ -4,7 +4,7 @@
 ; begin_list.
 ; If necessary, it’ll update the pointer at the beginning of the list.
 ;
-;   void ft_list_push_front(t_list **begin_list, void *data)
+;   void ft_list_push_front(t_list **begin_list, void *data);
 ;
 ; t_list is defined as follows:
 ;

@@ -2,7 +2,7 @@
 ; ft_atoi_base() function converts the initial portion of the string pointed
 ; to by str to int representation in the base specified by base.
 ;
-;   int ft_atoi_base(const char *str, const char *base)
+;   int ft_atoi_base(const char *str, const char *base);
 ;
 ; If there’s an invalid argument, the function should return 0. Examples of
 ; invalid arguments :

@@ -5,7 +5,7 @@
 ; If necessary, it’ll update the pointer at the beginning of the list.
 ;
 ;   void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(),
-;                           void (*free_fct)(void *))
+;                           void (*free_fct)(void *));
 ;
 ; t_list is defined as follows:
 ;
@@ -40,8 +40,9 @@ ft_list_remove_if:                  ; rax ft_list_remove_if(rdi, rsi, rdx, rcx)
             jz      .Lret           ; return
             mov     rdi, [r12]      ; rdi = r12->data
             mov     rsi, rbx        ; rsi = data_ref
+            xor     eax, eax        ; clear rax
             call    r14             ; cmp(rdi, rsi)
-            test    rax, rax        ; if (cmp(r12->data, data_ref) == 0)
+            test    eax, eax        ; if (cmp(r12->data, data_ref) == 0)
             jz      .Lequal         ; if zero, goto .Lequal
             mov     r13, r12        ; r13 = r12
             mov     r12, [r12 + 8]  ; r12 = r12->next
