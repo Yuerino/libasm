@@ -24,11 +24,25 @@ int main() {
     printf("at index: %s\n", ft_strchr(str, 'H'));
     printf("20 in base 16: %i\n", ft_atoi_base("+20", "0123456789ABCDEF"));
 
+    {
     t_list *list = malloc(sizeof(t_list));
     list->data = ft_strdup("Hello");
     list->next = malloc(sizeof(t_list));
     list->next->data = ft_strdup("World");
     list->next->next = NULL;
     printf("List size: %i\n", ft_list_size(list));
+    ft_list_push_front(&list, ft_strdup("New"));
+    printf("List size: %i\n", ft_list_size(list));
+    printf("First element: %s\n", (char *)list->data);
+    //leaks
+    }
+
+    {
+    t_list *tmp = NULL;
+    ft_list_push_front(&tmp, ft_strdup("Tmp1"));
+    printf("List size: %i\n", ft_list_size(tmp));
+    printf("First element: %s\n", (char *)tmp->data);
+    //leaks
+    }
     return 0;
 }

@@ -23,5 +23,6 @@ int     ft_isspace(int c);
 char    *ft_strchr(const char *s, int c);
 int     ft_atoi_base(const char *str, const char *base);
 int     ft_list_size(t_list *begin_list);
+void    ft_list_push_front(t_list **begin_list, void *data);
 
 #endif
