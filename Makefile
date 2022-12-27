@@ -21,6 +21,7 @@ SRC			=	ft_strlen.s \
 				ft_atoi_base.s \
 				ft_list_size.s \
 				ft_list_push_front.s \
+				ft_list_remove_if.s
 
 OBJ			=	$(SRC:%.s=$(OBJ_DIR)/%.o)
 OBJ_DIR		=	obj
