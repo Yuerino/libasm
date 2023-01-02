@@ -4,7 +4,7 @@ AS			=	nasm
 ASMFLAGS	=	-f elf64 -w+all -w+error
 
 AR			=	ar
-ARFLAGS		=	rcs
+ARFLAGS		=	rc
 
 RM			=	rm -f
 
@@ -31,6 +31,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+		@ranlib $(NAME)
 		@echo "\033[32mBuild $(NAME) succesfully!\033[0m"
 
 $(OBJ_DIR)/%.o: %.s
@@ -50,7 +51,13 @@ fclean: clean
 
 re: fclean all
 
-test: all
+test:
+		@git clone --recurse-submodules https://github.com/Yuerino/libasm-unit-test.git test
+
+run-test: | test
 		@$(MAKE) -C test run
 
-.PHONY: all clean fclean re test
+test-old: all
+		@$(MAKE) -C test-old run
+
+.PHONY: all clean fclean re test-old run-test

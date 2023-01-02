@@ -76,3 +76,6 @@ dkms.conf
 
 # Objects directory
 obj/
+
+# Unit test
+test/
