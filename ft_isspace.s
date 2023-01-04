@@ -18,6 +18,6 @@ ft_isspace:                         ; eax = ft_isspace(edi)
             je      .Lret           ; if equal, jump to .Lret
             sub     edi, 9          ; edi = edi - '\t', normalize '\t' to 0
             cmp     edi, 5          ; check if within range 0-4 for white-space characters
-            setl    al              ; if greater, set al to 1
+            setb    al              ; if greater, set al to 1
 .Lret:
             ret

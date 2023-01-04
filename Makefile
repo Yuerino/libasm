@@ -41,12 +41,12 @@ $(OBJ_DIR)/%.o: %.s
 
 clean:
 		@$(RM) -r $(OBJ_DIR)
-		@$(MAKE) -C test clean
+		-@$(MAKE) -C test clean
 		@echo "\033[32mCleaned all object files\033[0m"
 
 fclean: clean
 		@$(RM) $(NAME)
-		@$(MAKE) -C test fclean
+		-@$(MAKE) -C test fclean
 		@echo "\033[32mCleaned all binary files\033[0m"
 
 re: fclean all
